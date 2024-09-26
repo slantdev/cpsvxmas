@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Interactive Christmas Tree</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="tree-container">
+      <h1>Christmas Wishes for Shelter Cats</h1>
+      <div id="tree-canvas"></div>
+    </div>
+
+    <!-- Wish Form Modal -->
+    <div id="wish-modal" class="modal">
+      <div class="modal-content">
+        <span class="close-button">&times;</span>
+        <h2>Submit Your Wish</h2>
+        <form id="wish-form">
+          <textarea
+            id="wish-text"
+            placeholder="Write your Christmas wish here..."
+            required
+          ></textarea>
+          <input
+            type="text"
+            id="donor-name"
+            placeholder="Your Name (Optional)"
+          />
+          <button type="submit">Submit Wish</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Include Firebase SDKs with non-module compatible links -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+
+    <script>
+      // Your web app's Firebase configuration
+      const firebaseConfig = {
+        apiKey: "AIzaSyAYBanCqtFMtw2iJwRKXb33wtFJ-W00aQk",
+        authDomain: "cpsv-christmas-wishes.firebaseapp.com",
+        projectId: "cpsv-christmas-wishes",
+        storageBucket: "cpsv-christmas-wishes.appspot.com",
+        messagingSenderId: "586928079303",
+        appId: "1:586928079303:web:eb1595be91072e6b5599e2",
+      };
+
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+      const db = firebase.firestore();
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/konva@8.4.1/konva.min.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
