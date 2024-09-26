@@ -32,7 +32,7 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: Set up Node.js
         uses: actions/setup-node@v3
@@ -41,12 +41,15 @@ jobs:
 
       - name: Install dependencies
         run: npm ci  # This will work now because package-lock.json exists
+        working-directory: .
 
       - name: Build the project
         run: npm run build  # Replace with your actual build command if any
+        working-directory: .
 
       - name: Deploy to Firebase
         env:
           FIREBASE_TOKEN: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_CPSV_CHRISTMAS_WISHES }} # Make sure your Firebase token is set in GitHub secrets
         run: firebase deploy
+        working-directory: .
 
